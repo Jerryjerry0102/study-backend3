@@ -17,14 +17,12 @@ exports.get_visitors = (req,res) => {
     // select * from visitor
     // findAll은 promise이기 때문에 다음에 할 일은 then을 적고 적어준다
     .then((result) => {
-        console.log("result: ", result);
-        console.log( "index" );
+        console.log("findAll: ", result);
         res.render("index", { data: result });
     })
 
     // Visitor.get_visitors(function( result ){
     //     console.log( "result: ", result );
-    //     console.log( "index" );
     //     res.render("index", { data: result });
     // });
 }
@@ -38,7 +36,7 @@ exports.post_comment = (req,res) => {
     Visitor.create(data)
     .then((result) => {
         // sql문을 실행시켰을 때 그러니까 Visitor.create()를 실행시켰을 때 나오는 반환값이 result
-        console.log( result );
+        console.log("create: ", result);
         // result 찍으면 visitor{} 이렇게 dictionary로 나옴.
         // result.dataValues.id 찍은 거랑 result.id 찍는 거랑 같음
         // dataValues에는 바로 들어갈 수 있기 때문에 가능
@@ -62,7 +60,7 @@ exports.get_visitor = (req,res) => {
         // 그래서 res.send에서 인덱스를 없애주면 됨.
     })
     .then((result)=>{
-        console.log( "result : ", result );
+        console.log( "findOne : ", result );
         res.send( { result : result } );
     })
     // Visitor.get_visitor( req.query.id, function(result) {
