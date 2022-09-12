@@ -18,7 +18,7 @@ exports.get_visitors = (req,res) => {
     // findAll은 promise이기 때문에 다음에 할 일은 then을 적고 적어준다
     .then((result) => {
         console.log("findAll: ", result);
-        res.render("index", { data: result });
+        res.render("visitor", { data: result });
     })
 
     // Visitor.get_visitors(function( result ){

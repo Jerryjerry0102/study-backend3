@@ -32,6 +32,8 @@ db.Visitor = require("./Visitor")(sequelize, Sequelize);
 //     "Visitor" : require("./visitor")(sequelize, Sequelize)
 // }
 
+db.Guest = require("./Guest")(sequelize, Sequelize);
+
 
 
 
@@ -54,7 +56,6 @@ db.Visitor = require("./Visitor")(sequelize, Sequelize);
 
 module.exports = db;
 // 모든 controller에서 사용하기 위해서 내보내고 있는 것
-// 아니면 
 
 
 

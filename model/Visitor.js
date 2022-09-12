@@ -11,13 +11,13 @@ const Visitor = ( Sequelize, DataTypes ) => {
     const model = Sequelize.define(
         "visitor",
         {   
-            id: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                primaryKey: true,
-                autoIncrement: true
+            id: { // id int not null primaryKey auto_increment
+                type: DataTypes.INTEGER,//데이터 타입 정해주기
+                allowNull: false,       //null값 넣기
+                primaryKey: true,       //기본키 설정
+                autoIncrement: true     //자동으로 수가 올라가는지
             },
-            name: {
+            name: { // name varchar(10) not null
                 type: DataTypes.STRING(10),
                 allowNull: false
             },
@@ -27,8 +27,11 @@ const Visitor = ( Sequelize, DataTypes ) => {
         },
         {
             tableName: "visitor",
-            freezTableName: true,   // tableName을 고정해주겠다는 의미
+            freezTableName: true,
+            // sql문 실행을 시킬 때 자동으로 테이블 자체를 복수형태로 만든다.
+            // freeezTableName: true는 tableName을 고정해주겠다는 의미
             timestamps: false 
+            // 등록된 시간, 수정된 시간이 자동으로 시킨다. 기본값 true.
         }
     );
     return model;
