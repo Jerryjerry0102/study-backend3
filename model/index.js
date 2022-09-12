@@ -34,6 +34,8 @@ db.Visitor = require("./Visitor")(sequelize, Sequelize);
 
 db.Guest = require("./Guest")(sequelize, Sequelize);
 
+db.User = require("./User")(sequelize, Sequelize);
+
 
 
 

@@ -1,4 +1,8 @@
 const { Guest } = require("../model");
+// const model = require("../model");
+// model.Guest
+// =
+// const { Guest } = require("../model");
 
 exports.get_guests = (req, res) => {
     Guest.findAll()

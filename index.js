@@ -3,11 +3,18 @@ const app = express();
 const port = 8000;
 
 app.set("view engine", "ejs");
+app.use("/static", express.static("static"));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-const router = require("./routes");
-app.use('/', router);
+const routerVisitor = require("./routes/visitor");
+app.use('/visitor', routerVisitor);
+
+const routerGuest = require("./routes/guest");
+app.use('/guest', routerGuest);
+
+const routerUser = require("./routes/user");
+app.use('/user', routerUser);
 
 app.listen(port, ()=>{
     console.log( "Server Port : ", port );
