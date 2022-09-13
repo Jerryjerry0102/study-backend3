@@ -2,9 +2,16 @@ const express = require("express");
 const user = require("../controller/UserController");
 const router = express.Router();
 
-router.get("/", user.basic_user);
+// 메인 //
+router.get("/", user.main_user);
 
-router.post("/signup", user.signup_user);
+// 회원가입 //
+router.get("/signup", user.signup_user);
+router.post("/signup/register", user.register_signup);
+
+// 로그인 //
+router.get("/login", user.login_user);
+router.post("/login/post", user.post_login);
 
 
 
