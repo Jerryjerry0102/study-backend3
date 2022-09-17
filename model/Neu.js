@@ -1,29 +1,29 @@
-const User = (Sequelize, DataTypes) => {
+const Neu = (Sequelize, DataTypes) => {
   const model = Sequelize.define(
-    "User",
+    "neu",
     {
       id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-      name: {
         type: DataTypes.STRING(10),
         allowNull: false,
+        primaryKey: true,
+        // autoIncrement: true,
       },
       pw: {
         type: DataTypes.STRING(15),
         allowNull: false,
       },
+      name: {
+        type: DataTypes.STRING(10),
+        allowNull: false,
+      },
     },
     {
-      tableName: "user",
-      freezTableName: true,
+      tableName: "neu",
+      freezeTableName: true,
       timestamps: false,
     }
   );
   return model;
 };
 
-module.exports = User;
+module.exports = Neu;

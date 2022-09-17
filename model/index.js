@@ -4,10 +4,10 @@ const config = require("../config/config.json")["development"];
 
 const db = {};
 const sequelize = new Sequelize( // 모듈로 불러온 Sequelize 쓰는 것
-    config.database,    // 데이터베이스
-    config.username,    // 사용자명
-    config.password,    // 비밀번호    
-    config              // 정보 전체
+  config.database, // 데이터베이스
+  config.username, // 사용자명
+  config.password, // 비밀번호
+  config // 정보 전체
 );
 
 db.sequelize = sequelize;
@@ -36,9 +36,7 @@ db.Guest = require("./Guest")(sequelize, Sequelize);
 
 db.User = require("./User")(sequelize, Sequelize);
 
-
-
-
+db.Neu = require("./Neu")(sequelize, Sequelize);
 
 // table 여러 개 일 때 primary key foreign key 연결
 // db.Payment = require("../Payment")(sequelize, Sequelize);
@@ -55,10 +53,5 @@ db.User = require("./User")(sequelize, Sequelize);
 //     onDelete: "cascade"
 // })
 
-
 module.exports = db;
 // 모든 controller에서 사용하기 위해서 내보내고 있는 것
-
-
-
-

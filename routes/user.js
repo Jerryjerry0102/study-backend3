@@ -13,7 +13,7 @@ router.post("/signup/register", user.register_signup);
 router.get("/login", user.login_user);
 router.post("/login/post", user.post_login);
 
-
-
+// 프로필 //
+router.get("/profile", user.profile_user);
 
 module.exports = router;
