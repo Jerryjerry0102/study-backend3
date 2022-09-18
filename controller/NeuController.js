@@ -45,21 +45,6 @@ exports.login_post = (req, res) => {
   });
 };
 
-// myInfo 내 정보
-
-// // 이건 새로할 때 해보자
-// exports.myInfo = (req, res) => {
-//   Neu.findOne({
-//     where: { id: req.body.id },
-//   }).then((result) => {
-//     if (result) {
-//       res.render("neu_myInfo", { myInfo: myInfo });
-//     } else {
-//       res.redirect("/neu/login");
-//     }
-//   });
-// };
-
 exports.myInfo = (req, res) => {
   res.render("neu_myInfo", { myInfo: myInfo });
 };

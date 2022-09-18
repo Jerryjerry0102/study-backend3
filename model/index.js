@@ -38,6 +38,8 @@ db.User = require("./User")(sequelize, Sequelize);
 
 db.Neu = require("./Neu")(sequelize, Sequelize);
 
+db.Member = require("./Member")(sequelize, Sequelize);
+
 // table 여러 개 일 때 primary key foreign key 연결
 // db.Payment = require("../Payment")(sequelize, Sequelize);
 

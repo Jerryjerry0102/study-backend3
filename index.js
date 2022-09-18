@@ -19,6 +19,9 @@ app.use("/user", routerUser);
 const routerNeu = require("./routes/neu");
 app.use("/neu", routerNeu);
 
+const routerMember = require("./routes/member");
+app.use("/member", routerMember);
+
 app.listen(port, () => {
   console.log("Server Port : ", port);
 });
