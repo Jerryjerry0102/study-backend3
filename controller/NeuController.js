@@ -15,13 +15,75 @@ exports.signup_post = (req, res) => {
     pw: req.body.pw,
     name: req.body.name,
   };
-  Neu.create(info).then((response) => {
-    console.log(response.dataValues);
-    res.send(`<script>document.location.href="/neu/login"</script>`);
+  Neu.create(info).then((result) => {
+    console.log("create:", result);
+    res.send(
+      `<script>alert("회원가입 완료"); document.location.href="/neu/login"</script>`
+    );
   });
 };
 
 // login 로그인
 exports.login = (req, res) => {
   res.render("neu_login");
+};
+let myInfo;
+exports.login_post = (req, res) => {
+  Neu.findOne({
+    where: {
+      id: req.body.id,
+      pw: req.body.pw,
+    },
+  }).then((result) => {
+    console.log("findOne:", result);
+    if (result != null) {
+      res.send(true);
+      myInfo = result.dataValues;
+    } else {
+      res.send(false);
+    }
+  });
+};
+
+// myInfo 내 정보
+
+// // 이건 새로할 때 해보자
+// exports.myInfo = (req, res) => {
+//   Neu.findOne({
+//     where: { id: req.body.id },
+//   }).then((result) => {
+//     if (result) {
+//       res.render("neu_myInfo", { myInfo: myInfo });
+//     } else {
+//       res.redirect("/neu/login");
+//     }
+//   });
+// };
+
+exports.myInfo = (req, res) => {
+  res.render("neu_myInfo", { myInfo: myInfo });
+};
+
+exports.myInfo_patch = (req, res) => {
+  let data = {
+    id: req.body.id,
+    pw: req.body.pw,
+    name: req.body.name,
+  };
+  Neu.update(data, {
+    where: {
+      id: myInfo.id,
+    },
+  }).then((result) => {
+    console.log("update:", result);
+    res.send("수정 성공");
+  });
+};
+exports.myInfo_delete = (req, res) => {
+  Neu.destroy({
+    where: { id: req.body.id },
+  }).then((result) => {
+    console.log("destroy:", result);
+    res.send("탈퇴 성공");
+  });
 };
